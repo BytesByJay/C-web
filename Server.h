@@ -12,12 +12,13 @@ struct Server
     u_long interface;
     int port;
     int backlog;
+    int socket;
 
     struct sockaddr_in address;
     
-    void (*launch)(void);
+    void (*launch)(struct Server *);
 };
 
-struct Server server_constructor(int domain, int service, int protocol, u_long interface, int port, int backlog, void(*launch)(void))
+struct Server server_constructor(int domain, int service, int protocol, u_long interface, int port, int backlog, void(*launch)(struct Server *server));
 
 #endif /* Server_h */
