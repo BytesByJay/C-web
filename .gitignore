@@ -1,0 +1,21 @@
+# Binaries
+bin/
+*.o
+*.out
+server
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.a
+*.so
+*.dylib

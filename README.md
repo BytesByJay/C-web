@@ -15,16 +15,19 @@ A minimalist HTTP server written in pure C with zero dependencies. Perfect for s
 ## 🚀 Quick Start
 
 ```bash
-# Clone and compile
+# Clone the repository
 git clone <your-repo-url>
 cd C-web
-gcc test.c Server.c -o server
 
-# Run the server
-./server
+# Build and run (using Makefile)
+make run
+
+# Or build separately
+make        # Compile
+./bin/server  # Run
 
 # Visit in browser
-# http://localhost:9999/index.html
+# http://localhost:9999/
 ```
 
 ## 📚 Why C-Web?
@@ -44,25 +47,34 @@ gcc test.c Server.c -o server
 
 ```
 C-web/
-├── Server.h         # Server interface (the contract)
-├── Server.c         # Server implementation (socket logic)
-├── test.c           # Application code (your HTTP logic)
-├── public/          # Static files to serve
+├── src/              # Source files
+│   ├── server.c      # Main entry point
+│   └── Server.c      # Server implementation
+├── include/          # Header files
+│   └── Server.h      # Server interface
+├── public/           # Static web files
 │   ├── index.html
+│   ├── about.html
 │   └── style.css
-├── LEARNING_C.md    # C concepts for Python developers
-└── ARCHITECTURE.md  # Visual system walkthrough
+├── docs/             # Documentation
+│   ├── LEARNING_C.md
+│   └── ARCHITECTURE.md
+├── bin/              # Compiled binaries (gitignored)
+├── Makefile          # Build automation
+└── README.md
 ```
 
 ## 🎓 Learning Resources
 
 New to C? Start here:
-- **[LEARNING_C.md](LEARNING_C.md)**: C concepts explained using Python analogies
-- **[ARCHITECTURE.md](ARCHITECTURE.md)**: Visual diagrams of the server architecture
+- **[docs/LEARNING_C.md](docs/LEARNING_C.md)**: C concepts explained using Python analogies
+- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**: Visual diagrams of the server architecture
 
 ## 🔧 How It Works
 
 ```c
+// In src/server.c:
+
 // 1. Create server (binds to port 9999)
 struct Server server = server_constructor(AF_INET, SOCK_STREAM, 0, 
                                           INADDR_ANY, 9999, 10, launch);
