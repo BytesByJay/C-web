@@ -113,18 +113,3 @@ Inspired by classic tiny servers (Tinyhttpd, many YouTube socket tutorials) but 
 
 Happy hacking — and enjoy seeing your browser talk directly to your own tiny server!
 
----
-
-Main changes & reasoning
-
-- Removed buzzword overload ("⚡", "🚀", too many emojis)
-- Made comparison section shorter and more factual
-- Sounded more human / less sales-pitchy
-- Better structure: Why → Features → Quick start → Layout → Learning path → Extensions → Philosophy
-- Kept the educational focus strong but realistic
-- Fixed small inconsistencies (e.g. `Server.c` vs `http.c`, constructor style → simpler explanation)
-- Made "under 500 lines" more precise ("core server code")
-
-Feel free to tweak the repo name, port, file names, etc. to match your actual code.
-
-Good luck with the project — it's one of the best ways to really understand networking!
