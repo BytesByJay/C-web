@@ -112,7 +112,8 @@ Would appreciate a link back if you use it in a blog post or tutorial.
 Inspired by classic tiny servers (Tinyhttpd, many YouTube socket tutorials) but rewritten from scratch to be clearer and more modern-C friendly.
 
 Happy hacking — and enjoy seeing your browser talk directly to your own tiny server!
-```
+
+---
 
 Main changes & reasoning
 
