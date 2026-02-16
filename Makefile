@@ -10,7 +10,7 @@ BIN_DIR = bin
 OBJ_DIR = $(BIN_DIR)/obj
 
 # Files
-TARGET = $(BIN_DIR)/server
+TARGET = $(BIN_DIR)/cweb
 SOURCES = $(wildcard $(SRC_DIR)/*.c)
 OBJECTS = $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

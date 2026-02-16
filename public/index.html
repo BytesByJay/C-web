@@ -3,51 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C-Web Micro Server</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Cweb — Micro HTTP Server in C</title>
+    <style>
+        :root {
+            --bg: #0f1117;
+            --text: #e2e8f0;
+            --accent: #60a5fa;
+            --muted: #94a3b8;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin: 0 0 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        h2, h3 {
+            color: #f1f5f9;
+            margin-top: 2.5rem;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            padding-left: 1.2rem;
+            margin: 1rem 0;
+        }
+        code {
+            background: #1e293b;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        }
+        pre {
+            background: #1e293b;
+            padding: 1.2rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.95rem;
+        }
+        footer {
+            margin-top: 4rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🚀 C-Web Micro Server</h1>
-            <p class="tagline">Learn C networking in under 500 lines</p>
-        </header>
-        
-        <main>
-            <section class="hero">
-                <h2>Welcome!</h2>
-                <p>This page is being served by a custom HTTP server written in pure C with zero dependencies.</p>
-            </section>
-            
-            <section class="features">
-                <h3>✨ Features</h3>
-                <ul>
-                    <li><strong>Tiny:</strong> Less than 300 lines of code</li>
-                    <li><strong>Fast:</strong> Native C performance</li>
-                    <li><strong>Zero Dependencies:</strong> Pure C with standard libraries only</li>
-                    <li><strong>Educational:</strong> Heavily commented for learning</li>
-                </ul>
-            </section>
-            
-            <section class="demo">
-                <h3>📖 Try It Out</h3>
-                <p>Check out the <a href="about.html">About Page</a> to see routing in action!</p>
-                <p>Or view the source code on the <a href="https://github.com" target="_blank">GitHub repository</a>.</p>
-            </section>
-            
-            <section class="learning">
-                <h3>🎓 Learning Resources</h3>
-                <ul>
-                    <li>Read <code>LEARNING_C.md</code> for C concepts explained with Python analogies</li>
-                    <li>Read <code>ARCHITECTURE.md</code> for visual system diagrams</li>
-                    <li>Explore <code>test.c</code> to see the HTTP request handling</li>
-                </ul>
-            </section>
-        </main>
-        
-        <footer>
-            <p>Built with ❤️ in C | <a href="/">Home</a> | <a href="about.html">About</a></p>
-        </footer>
-    </div>
+
+    <h1>Cweb</h1>
+    <p>A minimal HTTP/1.0 server written in pure C - under 300 lines, zero external dependencies.</p>
+
+    <h2>What it does</h2>
+    <p>Single-threaded request handling with basic routing and static file serving. Built with standard POSIX sockets to understand the HTTP protocol and low-level networking from scratch.</p>
+
+    <h3>Key traits</h3>
+    <ul>
+        <li>~250–300 LOC (excluding comments)</li>
+        <li>Only uses <code>socket.h</code>, <code>netinet/in.h</code>, <code>unistd.h</code> etc.</li>
+        <li>No libraries, no frameworks, no build systems required</li>
+        <li>Simple request parsing and route dispatching</li>
+    </ul>
+
+    <h3>Try it</h3>
+    <ul>
+        <li><a href="about.html">About page</a> - demonstrates basic routing</li>
+        <li><a href="https://github.com/yourusername/cweb" target="_blank">Source code on GitHub</a></li>
+    </ul>
+
+    <h3>Quick start</h3>
+    <pre><code># Compile (one line, no Makefile needed)
+cc -O2 -Wall -Wextra -std=c99 *.c -o cweb
+
+# Run on port 8080
+./cweb 8080</code></pre>
+
+    <p>Then open <code>http://localhost:8080</code> or curl it.</p>
+
+    <footer>
+        Pure C · POSIX sockets · Built for learning and minimalism
+    </footer>
+
 </body>
 </html>

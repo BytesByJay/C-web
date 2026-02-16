@@ -20,6 +20,9 @@ struct Server server_constructor(int domain, int service, int protocol, u_long i
     server.address.sin_addr.s_addr = htonl(interface);
 
     server.socket = socket(domain, service, protocol);
+    int opt = 1;
+    setsockopt(server.socket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+
     if (server.socket == 0)
     {
         perror("Failed to connect socket ...\n");

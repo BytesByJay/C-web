@@ -1,70 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - C-Web</title>
-    <link rel="stylesheet" href="style.css">
+    <title>About - Cweb</title>
+    <style>
+        :root {
+            --bg: #0f1117;
+            --text: #e2e8f0;
+            --accent: #60a5fa;
+            --muted: #94a3b8;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin: 0 0 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        h2, h3 {
+            color: #f1f5f9;
+            margin-top: 2.5rem;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            padding-left: 1.2rem;
+            margin: 1rem 0;
+        }
+        code {
+            background: #1e293b;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        }
+        footer {
+            margin-top: 4rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+            text-align: center;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="container">
-        <header>
-            <h1>📚 About C-Web</h1>
-            <p class="tagline">A minimalist web server for education</p>
-        </header>
 
-        <main>
-            <section class="hero">
-                <h2>The Story</h2>
-                <p>C-Web started as a learning project from a YouTube tutorial. The goal was to understand how web
-                    servers work at the lowest level - using pure C and POSIX sockets.</p>
-            </section>
+    <h1>About Cweb</h1>
+    <p>A minimal single-threaded HTTP/1.0 server written in pure C using POSIX sockets.</p>
 
-            <section>
-                <h3>🎯 Project Goals</h3>
-                <ul>
-                    <li><strong>Educational First:</strong> Every line of code is documented to help others learn</li>
-                    <li><strong>Stay Minimal:</strong> Keep the core under 500 lines of code</li>
-                    <li><strong>Zero Dependencies:</strong> Only standard C libraries</li>
-                    <li><strong>Fast & Efficient:</strong> Leverage C's native performance</li>
-                </ul>
-            </section>
+    <h2>Origin</h2>
+    <p>Started as a personal project to understand low-level web serving: TCP socket lifecycle, raw HTTP parsing, and response construction without abstractions or libraries.</p>
 
-            <section>
-                <h3>🛠️ Built With</h3>
-                <ul>
-                    <li>Pure C (C99 standard)</li>
-                    <li>POSIX sockets for networking</li>
-                    <li>Standard library for file I/O</li>
-                    <li>No external dependencies</li>
-                </ul>
-            </section>
+    <h3>Project Goals</h3>
+    <ul>
+        <li>Keep the core implementation under ~300 lines of code (excluding comments)</li>
+        <li>Use only standard C (C99) and POSIX APIs — zero external dependencies</li>
+        <li>Document the code clearly enough to serve as a learning reference</li>
+        <li>Prioritize correctness and simplicity over advanced features</li>
+    </ul>
 
-            <section>
-                <h3>💡 What You'll Learn</h3>
-                <p>By studying this codebase, you'll understand:</p>
-                <ul>
-                    <li>How TCP sockets work (socket, bind, listen, accept)</li>
-                    <li>HTTP protocol basics (requests, responses, headers)</li>
-                    <li>File I/O in C</li>
-                    <li>Memory management with malloc/free</li>
-                    <li>Structs and function pointers</li>
-                </ul>
-            </section>
+    <h3>Implementation Details</h3>
+    <ul>
+        <li>Pure C (C99)</li>
+        <li>POSIX sockets (<code>socket()</code>, <code>bind()</code>, <code>listen()</code>, <code>accept()</code>)</li>
+        <li>Manual HTTP/1.0 request parsing (request line + basic headers)</li>
+        <li>Static file serving with correct Content-Type and Content-Length</li>
+        <li>Basic routing via string comparison (easy to extend)</li>
+        <li>Standard library for string handling, file I/O, and memory</li>
+    </ul>
 
-            <section class="demo">
-                <h3>🚀 Next Steps</h3>
-                <p>Want to contribute? Check out the <code>opensource_roadmap.md</code> for planned features!</p>
-                <p><a href="/">← Back to Home</a></p>
-            </section>
-        </main>
+    <h3>What this teaches</h3>
+    <p>Reading and modifying the code will show you:</p>
+    <ul>
+        <li>TCP server socket setup and connection handling</li>
+        <li>Parsing HTTP request lines and headers from raw bytes</li>
+        <li>Building valid HTTP/1.0 responses</li>
+        <li>Sending files efficiently with <code>read()</code>/<code>write()</code></li>
+        <li>Basic error handling and connection lifecycle</li>
+        <li>Manual memory management in a long-running process</li>
+    </ul>
 
-        <footer>
-            <p>Built with ❤️ in C | <a href="/">Home</a> | <a href="about.html">About</a></p>
-        </footer>
-    </div>
+    <h3>Next steps</h3>
+    <p>See <code>ROADMAP.md</code> (or <code>opensource_roadmap.md</code>) for potential improvements: better header parsing, keep-alive support, directory listing, etc.</p>
+
+    <p><a href="/">← Home</a></p>
+
+    <footer>
+        Pure C · POSIX · Minimal by design
+    </footer>
+
 </body>
-
 </html>
